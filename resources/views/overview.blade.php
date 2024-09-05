@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Congos Person manager</title>
+        <title>Congos Person Manager</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="app.css">
