@@ -17,10 +17,10 @@ class ManagerController extends Controller
      */
     function overview (): View
     {
-        // Get all
-        $dataArray = [];
+        // Get all persons and their data
+        $persons = PersonModel::with('addresses.notes', 'notes')->get();
 
-        return view('overview', $dataArray);
+        return view('overview', ['persons' => $persons]);
     }
 
     /**
@@ -252,7 +252,7 @@ class ManagerController extends Controller
      *
      * @return void
      */
-    function deleteAddress (Request $request): void
+    function deleteNote (Request $request): void
     {
         // Delete a note from the database
         AddressModel::find($request->id)->delete();

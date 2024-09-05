@@ -6,10 +6,26 @@
 
         <title>Congos Person Manager</title>
 
-        <!-- Fonts -->
         <link rel="stylesheet" href="app.css">
     </head>
     <body>
-        <p>Hello World!</p>
+        @foreach($persons as $person)
+            <p>{{ $person->name }} {{ $person->surname }}</p>
+            <ul>
+                @foreach($person->addresses as $address)
+                    <li>Address: {{ $address->street_name }} {{ $address->street_number }}, {{ $address->city }}</li>
+                    <ul>
+                        @foreach($address->notes as $note)
+                            <li>Note: {{ $note->note }}</li>
+                        @endforeach
+                    </ul>
+                @endforeach
+            </ul>
+            <ul>
+                @foreach($person->notes as $note)
+                    <li>Note: {{ $note->note }}</li>
+                @endforeach
+            </ul>
+        @endforeach
     </body>
 </html>

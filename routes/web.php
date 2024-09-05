@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('overview');
-});
+Route::get('/', [ManagerController::class, 'overview']);
+Route::get('/overview', [ManagerController::class, 'overview']);
+Route::resource('managers', ManagerController::class);

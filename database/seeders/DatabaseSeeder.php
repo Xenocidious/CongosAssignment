@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Persons seeder
+        // Person seeder
         $JohnId = Person::insertGetId([
             'name' => 'John',
             'surname' => 'Doe',
@@ -29,29 +29,29 @@ class DatabaseSeeder extends Seeder
             'email' => 'JaneDoe@example.com'
         ]);
 
-        // Addresses seeder
-        $JohnAddressId = Address::insert([
+        // Address seeder
+        $JohnAddressId = Address::insertGetId([
             'person_id' => $JohnId,
-            'street_name' => 'Faraway st.',
+            'street_name' => 'Faraway street',
             'street_number' => '0',
             'city' => 'Neverland'
         ]);
 
-        $JaneAddressId = Address::insert([
+        $JaneAddressId = Address::insertGetId([
             'person_id' => $JaneId,
-            'street_name' => 'Faraway st.',
+            'street_name' => 'Faraway street',
             'street_number' => '0',
             'city' => 'Neverland'
         ]);
 
         Address::insert([
             'person_id' => $JaneId,
-            'street_name' => 'Nowhere st.',
+            'street_name' => 'Nowhere street',
             'street_number' => '17',
             'city' => 'Neverland'
         ]);
 
-        // Notes Seeder
+        // Note Seeder
         Note::insert([
             'related_id' => $JohnId,
             'type' => 'person',
