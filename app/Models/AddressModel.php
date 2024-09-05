@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class AddressModel extends Model
 {
     use HasFactory;
 
@@ -23,6 +23,7 @@ class Address extends Model
      * @var array
      */
     protected $fillable = [
+        'person_id',
         'street_name',
         'street_number',
         'postal_code',

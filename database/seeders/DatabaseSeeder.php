@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\personModel as Person;
-use App\Models\addressModel as Address;
-use App\Models\noteModel as Note;
+use App\Models\PersonModel as Person;
+use App\Models\AddressModel as Address;
+use App\Models\NoteModel as Note;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,15 +20,13 @@ class DatabaseSeeder extends Seeder
         $JohnId = Person::insertGetId([
             'name' => 'John',
             'surname' => 'Doe',
-            'email' => 'JohnDoe@example.com',
-            'note' => ''
+            'email' => 'JohnDoe@example.com'
         ]);
 
         $JaneId = Person::insertGetId([
             'name' => 'Jane',
             'surname' => 'Doe',
-            'email' => 'JaneDoe@example.com',
-            'note' => 'Probably not her real name.'
+            'email' => 'JaneDoe@example.com'
         ]);
 
         // Addresses seeder
@@ -36,23 +34,21 @@ class DatabaseSeeder extends Seeder
             'person_id' => $JohnId,
             'street_name' => 'Faraway st.',
             'street_number' => '0',
-            'city' => 'Neverland',
-            'note' => 'Probably not his real address.'
+            'city' => 'Neverland'
         ]);
 
         $JaneAddressId = Address::insert([
             'person_id' => $JaneId,
             'street_name' => 'Faraway st.',
             'street_number' => '0',
-            'city' => 'Neverland',
-            'note' => 'Probably not her real address.'
+            'city' => 'Neverland'
         ]);
 
-        $JaneAddressId = Address::insert([
+        Address::insert([
             'person_id' => $JaneId,
             'street_name' => 'Nowhere st.',
             'street_number' => '17',
-            'city' => 'Neverland',
+            'city' => 'Neverland'
         ]);
 
         // Notes Seeder
