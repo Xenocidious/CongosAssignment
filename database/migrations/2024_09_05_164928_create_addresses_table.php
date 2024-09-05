@@ -15,6 +15,7 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('person_id');
             $table->foreign('person_id')->references('id')->on('persons');
 
             $table->string('street_name');
