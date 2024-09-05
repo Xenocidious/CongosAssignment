@@ -30,11 +30,11 @@ class NoteModel extends Model
     public function related()
     {
         if (str_to_lower($this->type) === 'person') {
-            return $this->belongsTo(Person::class, 'related_id');
+            return $this->belongsTo(PersonModel::class, 'related_id');
         }
 
         if (str_to_lower($this->type) === 'address') {
-            return $this->belongsTo(Address::class, 'related_id');
+            return $this->belongsTo(AddressModel::class, 'related_id');
         }
 
         return null;

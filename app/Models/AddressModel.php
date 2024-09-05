@@ -35,7 +35,7 @@ class AddressModel extends Model
      */
     public function person()
     {
-        return $this->belongsTo(Person::class, 'related_id');
+        return $this->belongsTo(PersonModel::class, 'person_id');
     }
 
     /**
@@ -43,6 +43,6 @@ class AddressModel extends Model
      */
     public function notes(): HasMany
     {
-        return $this->hasMany(Note::class);
+        return $this->hasMany(NoteModel::class, 'related_id')->where('type', 'address');
     }
 }

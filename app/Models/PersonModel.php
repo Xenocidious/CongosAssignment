@@ -33,7 +33,7 @@ class PersonModel extends Model
      */
     public function addresses(): HasMany
     {
-        return $this->hasMany(Address::class);
+        return $this->hasMany(AddressModel::class, 'person_id');
     }
 
     /**
@@ -41,6 +41,6 @@ class PersonModel extends Model
      */
     public function notes(): HasMany
     {
-        return $this->hasMany(Note::class);
+        return $this->hasMany(NoteModel::class, 'related_id')->where('type', 'person');
     }
 }
